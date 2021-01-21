@@ -25,20 +25,21 @@ namespace EsempioThread
         readonly Uri uriSqualo = new Uri("squalo-salmone.jpg", UriKind.Relative);
         int posDelfino = 100;
         int posSqualo = 131;
-        Random rnd = new Random();
-        bool vittoria = false;
+        Random rnd = new Random(); //Creo dei numeri random da mettere nel range dei valori che possono assumere 
+                                   // posDelfino e posSqualo nei rispettivi metodi di muoviDelfino e muoviSqualo
+        bool vittoria = false; //Mi serve per conteggiare la vittoria o del delfino o dello squalo
         public MainWindow()
         {
             InitializeComponent();
             
-            Thread t1 = new Thread(new ThreadStart(muoviDelfino));
-            Thread t2 = new Thread(new ThreadStart(muoviSqualo));
+            Thread t1 = new Thread(new ThreadStart(muoviDelfino)); //Un thread rappresenta l'immagine del delfino
+            Thread t2 = new Thread(new ThreadStart(muoviSqualo));//L'altro thread rappresenta l'immagine dello squalo
             ImageSource imm = new BitmapImage(uriDelfino);
             ImageSource imm1 = new BitmapImage(uriSqualo);
-            imgDelfino.Source = imm;
+            imgDelfino.Source = imm; //Dò i nomi alle immagini
             imgSqualo.Source = imm1;
 
-            t1.Start();
+            t1.Start(); //faccio la Join 
             t2.Start();
         }
 
@@ -58,7 +59,7 @@ namespace EsempioThread
 
 
             }
-            if(vittoria == false)
+            if(vittoria == false) //conteggio vittoria del delfino
             {
                 vittoria = true;
                 this.Dispatcher.BeginInvoke(new Action(() =>
@@ -92,7 +93,7 @@ namespace EsempioThread
 
 
             }
-            if (vittoria == false)
+            if (vittoria == false) //conteggio vittoria dello squalo
             {
                 vittoria = true;
                 this.Dispatcher.BeginInvoke(new Action(() =>
