@@ -25,6 +25,8 @@ namespace EsempioThread
         readonly Uri uriSqualo = new Uri("squalo-salmone.jpg", UriKind.Relative);
         int posDelfino = 100;
         int posSqualo = 131;
+        Random rnd = new Random();
+        bool vittoria = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,9 +44,10 @@ namespace EsempioThread
 
         public void muoviDelfino ()
         {
+            
             while (posDelfino<500)
             {
-                posDelfino += 10;
+                posDelfino += rnd.Next(5,50);
 
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
 
@@ -55,14 +58,30 @@ namespace EsempioThread
 
 
             }
+            if(vittoria == false)
+            {
+                vittoria = true;
+                this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    lbl1.Content = "primo delfino";
+                }));
+            }
+            else
+            {
+                this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    lbl2.Content = "secondo delfino";
+                }));
+            }
 
             
         }
         public void muoviSqualo()
         {
+            
             while (posSqualo < 500)
             {
-                posSqualo += 10;
+                posSqualo += rnd.Next(5,50);
 
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
 
@@ -72,6 +91,21 @@ namespace EsempioThread
                 }));
 
 
+            }
+            if (vittoria == false)
+            {
+                vittoria = true;
+                this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    lbl1.Content = "primo squalo";
+                }));
+            }
+            else
+            {
+                this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    lbl2.Content = "secondo squalo";
+                }));
             }
 
 
