@@ -9,6 +9,7 @@
     <Grid>
         <Image x:Name="imgSfondo" HorizontalAlignment="Left" Height="333" Margin="10,21,0,0" VerticalAlignment="Top" Width="744" Source="piscina.jpg"/>
         <Image x:Name="imgDelfino" HorizontalAlignment="Left" Height="71" Margin="500,166,0,0" VerticalAlignment="Top" Width="141"/>
+        <Image x:Name="imgSqualo" HorizontalAlignment="Left" Height="89" Margin="131,201,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>
