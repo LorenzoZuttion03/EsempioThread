@@ -43,7 +43,7 @@ namespace EsempioThread
             t2.Start();
         }
 
-        public void muoviDelfino ()
+        public void muoviDelfino () //Questo metodo fa muovere l'immagine del Delfino
         {
             
             while (posDelfino<500)
@@ -77,7 +77,7 @@ namespace EsempioThread
 
             
         }
-        public void muoviSqualo()
+        public void muoviSqualo() //Questo metodo fa muovere l'immagine dello Squalo.
         {
             
             while (posSqualo < 500)
